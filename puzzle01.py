@@ -39,15 +39,31 @@ This list represents the Calories of the food carried by five Elves:
 In case the Elves get hungry and need extra snacks, they need to know which Elf to ask: they'd like to know how many Calories are being carried by the Elf carrying the most Calories. In the example above, this is 24000 (carried by the fourth Elf).
 
 Find the Elf carrying the most Calories. How many total Calories is that Elf carrying?
+
+Your puzzle answer was 72478.
+
+--- Part Two ---
+
+By the time you calculate the answer to the Elves' question, they've already realized that the Elf carrying the most Calories of food might eventually run out of snacks.
+
+To avoid this unacceptable situation, the Elves would instead like to know the total Calories carried by the top three Elves carrying the most Calories. That way, even if one of those Elves runs out of snacks, they still have two backups.
+
+In the example above, the top three Elves are the fourth Elf (with 24000 Calories), then the third Elf (with 11000 Calories), then the fifth Elf (with 10000 Calories). The sum of the Calories carried by these three elves is 45000.
+
+Find the top three Elves carrying the most Calories. How many Calories are those Elves carrying in total?
+
+Your puzzle answer was 210367.
 """
 
 from heapq import heappush, heappop
 
 
-def get_max_calories_of_elf(elves_list):
+def get_max_calories_of_elf(elves: list) -> int:
+    """Count calories an elf"""
+
     current_max = 0
     running_max = 0
-    for line in elves_list:
+    for line in elves:
         line = line.strip()
         if not line:
             current_max = max(current_max, running_max)
@@ -55,31 +71,41 @@ def get_max_calories_of_elf(elves_list):
         else:
             running_max += int(line)
 
+    current_max = max(current_max, running_max)
+
     return current_max
 
 
-def get_max_calories_of_top_three_elves(elves_list):
-    max_heap = []
+def get_max_calories_of_top_three_elves(elves: list) -> int:
+    """Count calories the top 3 elves have"""
+    heap = []
     running_max = 0
 
-    for line in elves_list:
+    for line in elves:
         line = line.strip()
         if not line:
-            heappush(max_heap, running_max)
+            heappush(heap, running_max)
             running_max = 0
-            if len(max_heap) > 3:
-                heappop(max_heap)
+            if len(heap) > 3:
+                heappop(heap)
         else:
             running_max += int(line)
 
-    return sum(max_heap)
+    heappush(heap, running_max)
+    if len(heap) > 3:
+        heappop(heap)
+
+    return sum(heap)
 
 
 def main():
-    with open("input.txt") as f:
+    """main"""
 
-        max_calories = get_max_calories_of_top_three_elves(f)
-        print(max_calories)
+    with open("input.txt", encoding="utf8") as file:
+        elves = [line for line in file]
+
+        print(get_max_calories_of_elf(elves))
+        print(get_max_calories_of_top_three_elves(elves))
 
 
 if __name__ == "__main__":
