@@ -53,7 +53,7 @@ Both parts of this puzzle are complete! They provide two gold stars: **
 def day2_part1(filename):
     """
     Calculate score of rock, paper, scissors with opponent being left and own hand being right.
-    
+
     Opponent hand:
     A R
     B P
@@ -63,7 +63,7 @@ def day2_part1(filename):
     X R
     Y P
     Z S
-    
+
     score:
     X = 1
     Y = 2
@@ -101,7 +101,7 @@ def day2_part1(filename):
 def day2_part2(filename):
     """
     Calculate score of rock, paper, scissors with opponent being left and own result being right.
-    
+
     Opponent hand:
     A R
     B P
@@ -111,7 +111,7 @@ def day2_part2(filename):
     X lose
     Y draw
     Z win
-    
+
     score:
     X = 1
     Y = 2
