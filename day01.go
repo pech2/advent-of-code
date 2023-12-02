@@ -35,7 +35,7 @@ func getLastDigit(line string) string {
 	return ""
 }
 func main() {
-	file, err := os.Open("day01.txt")
+	file, err := os.Open("day01.input")
 	check(err)
 	defer file.Close()
 	scanner := bufio.NewScanner(file)

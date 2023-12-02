@@ -54,9 +54,9 @@ def part2(f):
 
 
 def main():
-    with open("day02.txt") as f:
+    with open("day02.input") as f:
         print(part1(f))
-    with open("day02.txt") as f:
+    with open("day02.input") as f:
         print(part2(f))
 
 
