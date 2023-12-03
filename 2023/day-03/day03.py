@@ -36,37 +36,6 @@ def part1(f):
     return parts
 
 
-def check_two(grid, row, col):
-    one = False
-    for x in range(-1, 2):
-        for y in range(-1, 2):
-            new_row = x + row
-            new_col = y + col
-            if (
-                new_row < 0
-                or new_row >= len(grid)
-                or new_col < 0
-                or new_col >= len(grid[0])
-            ):
-                continue
-            if not grid[new_row][new_col].isdigit():
-                continue
-            if not one:
-                one = True
-            else:
-                if y == 0:
-                    return True
-                elif grid[new_row][new_col - 1].isdigit():
-                    continue
-                else:
-                    return True
-    return False
-
-
-def get_slice(grid, row, col):
-    pass
-
-
 def find_two(grid, row, col):
     slices = set()
     for x in range(-1, 2):
