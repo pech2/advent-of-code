@@ -8,7 +8,7 @@ def part2(f):
 
 def main():
     filename = "day05.example"
-    # filename = "day05.input"
+    # filename = "day.input"
 
     with open(filename) as f:
         print(part1(f))
