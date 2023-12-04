@@ -32,13 +32,16 @@ def part2(f):
     for i, card in enumerate(f, 1):
         wins = count_wins(card)
 
+        cards[i] = cards[i]
         for copys in range(i + 1, i + 1 + wins):
             cards[copys] += cards[i]
+
     return sum(cards.values())
 
 
 def main():
-    filename = "day04.input"
+    filename = "day04.example"
+    # filename = "day04.input"
 
     with open(filename) as f:
         print(part1(f))
