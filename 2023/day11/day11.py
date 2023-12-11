@@ -2,6 +2,7 @@ def part1(f):
     grid = []
     for line in f:
         grid.append(line.strip())
+
     rows = set()
     cols = set()
     for i, row in enumerate(grid):
@@ -48,6 +49,7 @@ def part2(f):
     grid = []
     for line in f:
         grid.append(line.strip())
+
     rows = set()
     cols = set()
     for i, row in enumerate(grid):
