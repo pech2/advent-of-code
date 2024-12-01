@@ -1,19 +1,26 @@
-def part1(f):
+def part1(input_):
     pass
 
 
-def part2(f):
+def part2(input_):
     pass
+
+
+def load_file(filename):
+    input_ = []
+    with open(filename) as f:
+        for line in f:
+            input_.append(line)
+    return input_
 
 
 def main():
-    filename = "day.input"
+    input1 = load_file("day.input")
+    input2 = load_file("day.input")
 
-    with open(filename) as f:
-        print(part1(f))
+    print(part1(input1))
 
-    with open(filename) as f:
-        print(part2(f))
+    print(part2(input2))
 
 
 if __name__ == "__main__":
