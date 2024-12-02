@@ -7,20 +7,18 @@ def part2(input_):
 
 
 def load_file(filename):
-    input_ = []
-    with open(filename) as f:
-        for line in f:
-            input_.append(line)
+    with open("filename") as f:
+        input_ = f.read().strip().split("\n")
+
     return input_
 
 
 def main():
-    input1 = load_file("day.input")
-    input2 = load_file("day.input")
+    input_ = load_file("day.input")
 
-    print(part1(input1))
+    print(part1(input_))
 
-    print(part2(input2))
+    print(part2(input_))
 
 
 if __name__ == "__main__":
