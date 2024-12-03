@@ -7,7 +7,7 @@ def part2(input_):
 
 
 def load_file(filename):
-    with open("filename") as f:
+    with open(filename) as f:
         input_ = f.read().strip().split("\n")
 
     return input_
