@@ -19,7 +19,6 @@ def part1(input_):
                 guard = (i, j)
                 break
 
-    count = 0
     path = set()
 
     while in_grid(grid, guard[0], guard[1]):
@@ -81,7 +80,6 @@ def is_loop(input_, block):
                 guard = (i, j)
                 break
 
-    count = 0
     path = set()
     visited = set()
 
