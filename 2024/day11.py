@@ -18,7 +18,6 @@ def solve(input_, blinks=6):
                 d2[num[len(num) // 2 :]] += v
             else:
                 d2[str(int(num) * 2024)] += v
-
         c = d2
 
     return sum(c.values())
