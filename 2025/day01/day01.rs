@@ -16,8 +16,8 @@ fn main() {
 
     if let Ok(lines) = read_lines("./.input") {
         for line in lines.map_while(Result::ok) {
-            let direction = &line[0..1];
-            let num = &line[1..].parse::<i32>().unwrap();
+            let (direction, num_str) = line.split_at(1);
+            let num: i32 = num_str.parse().expect("Int expected");
             if direction == "L" {
                 start -= num;
             } else {
@@ -36,9 +36,8 @@ fn main() {
 
     if let Ok(lines) = read_lines("./.input") {
         for line in lines.map_while(Result::ok) {
-            let direction = &line[0..1];
-            let mut num = line[1..].parse::<i32>().expect("Failed to parse int");
-
+            let (direction, num_str) = line.split_at(1);
+            let mut num: i32 = num_str.parse().expect("Int expected");
             if direction == "L" {
                 num *= -1;
                 if start == 0 {
