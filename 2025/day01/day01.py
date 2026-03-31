@@ -87,7 +87,7 @@ def part2():
 
 def read():
     text = []
-    with open("text") as f:
+    with open(".input") as f:
         for line in f:
             text.append(line.strip())
     return text

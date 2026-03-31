@@ -30,4 +30,37 @@ fn main() {
         }
     }
     println!("{}", zeroes);
+
+    start = 50;
+    zeroes = 0;
+
+    if let Ok(lines) = read_lines("./.input") {
+        for line in lines.map_while(Result::ok) {
+            let direction = &line[0..1];
+            let mut num = line[1..].parse::<i32>().expect("Failed to parse int");
+
+            if direction == "L" {
+                num *= -1;
+                if start == 0 {
+                    start = 100;
+                }
+            }
+
+            start += num;
+
+            while start < 0 {
+                start += 100;
+                zeroes += 1;
+            }
+            while start > 100 {
+                start -= 100;
+                zeroes += 1;
+            }
+            if start == 0 || start == 100 {
+                start = 0;
+                zeroes += 1;
+            }
+        }
+    }
+    println!("{}", zeroes);
 }
