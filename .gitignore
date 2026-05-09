@@ -1,6 +1,7 @@
 # Don't commit Advent of Code input
 *.input
 input
+text
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
